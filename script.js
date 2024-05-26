@@ -4,7 +4,7 @@ let provider;
 let signer;
 let contract;
 						 
-const contractAddress = "0x87D56F3C259F62c05B5B4eeA7D5B6772eF7717D3"; 
+const contractAddress = "0x38113C9943a0De86886653f82c24cd0853432639"; 
 const contractABI =[
 	{
 		"inputs": [
@@ -158,6 +158,14 @@ document.getElementById('disconnectWallet').addEventListener('click', () => {
     document.getElementById('status').innerText = 'Wallet disconnected';
     document.getElementById('score').innerText = '00000'; // Reset score display
 });
+
+document.getElementById('clearInputs').addEventListener('click', async () => {
+	document.getElementById('challengeId').value = null; 
+    document.getElementById('flag').value = null; 
+
+
+});
+
 
 document.getElementById('submitFlag').addEventListener('click', async () => {
     if(!contract){

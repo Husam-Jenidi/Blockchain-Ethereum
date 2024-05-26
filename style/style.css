@@ -290,12 +290,14 @@ footer ul {
 
 #app {
     padding: 2rem;
-    margin:auto;
+    margin-left:1rem;
+    margin-right:1rem;
     background-color: var(--magenta);
-    display: block;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Adjust the fractions as needed */
+    gap: 20px;    align-items: center;
 }
-#app #connectWallet, #submitFlag, #disconnectWallet ,#addFlag{
+#app #connectWallet, #submitFlag, #disconnectWallet ,#addFlag, #clearInputs{
     background-color: green;
     border-radius: 25px;
     padding:1rem;
@@ -307,7 +309,7 @@ footer ul {
     transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* Add transition for smooth effect */
 
 }
-#app #connectWallet:hover,#submitFlag:hover ,#disconnectWallet:hover ,#addFlag:hover{
+#app #connectWallet:hover,#submitFlag:hover ,#disconnectWallet:hover ,#addFlag:hover, #clearInputs:hover{
     background-color: white;
     color:green;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box-shadow instead of border */
@@ -317,7 +319,7 @@ footer ul {
     display: flex;
     flex-flow: row wrap;
     justify-content: left;
-    gap: 25%;
+    gap: 1rem;
     border-top: solid 1px white;
     margin:auto;
     padding:1rem;
@@ -362,4 +364,15 @@ footer ul {
     padding:1rem;
     min-height:4rem;
     transition: all 0.3s ease;;
+}
+
+.left-column {
+   
+    padding: 20px;
+}
+
+.right-column {
+    background-color: #f1f1f1; /* Add your preferred styling */
+    padding: 20px;
+    color:red
 }
