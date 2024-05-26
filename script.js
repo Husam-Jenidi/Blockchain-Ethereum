@@ -211,6 +211,8 @@ document.getElementById('disconnectWallet').addEventListener('click', () => {
     contract = null;
     document.getElementById('status').innerText = 'Wallet disconnected';
     document.getElementById('score').innerText = '00000'; // Reset score display
+	document.getElementById('players').innerHTML="";
+	document.getElementById("admin").innerText= "Connect your wallet and Submit a flag first!"
 });
 
 document.getElementById('clearInputs').addEventListener('click', async () => {
