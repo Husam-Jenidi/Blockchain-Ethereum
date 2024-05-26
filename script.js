@@ -190,9 +190,10 @@ document.getElementById('connectWallet').addEventListener('click', async () => {
             contract = new ethers.Contract(contractAddress, contractABI, signer);
 
             document.getElementById('status').innerText = 'Wallet connected';
+			const playerAddress = await contract.signer.getAddress();
 			updateScore();
             getDashboard();
-			
+			sayHi(playerAddress);
         } catch (error) {
             console.error(error);
             document.getElementById('status').innerText = 'Failed to connect wallet';
@@ -285,17 +286,26 @@ async function getDashboard(){
 		const playerAddress = await contract.playerAddress();
 		playerContainer.innerHTML ='';
 
-		for (let i=0;i< players.length;i++){
+		let playerData =[];
+		for (let i=0; i<players.length;i++){
+			playerData.push({address:players[i],score:scores[i]})
+		}
+			playerData.sort((a,b) => b.score -a.score);
+		playerData.forEach(player=>{
 			
 			const playerElement= document.createElement('div');
-			playerElement.innerText= `Address: ${players[i]}, Score: ${scores[i].toString()}`;
+			playerElement.innerText= `Address: ${player.address}, Score: ${player.score.toString()}`;
 			playerContainer.appendChild(playerElement);
-			if (players[i]==playerAddress) {playerElement.style.color = "blue"}
-		}
+			if (player.address==playerAddress) {playerElement.style.color = '#03A678'}
+		});
+		
 	}
 	catch(error){
 		console.error(error);
-		alert('failed to fetch plater data');
+		alert('failed to fetch player data');
 
 	}
+}
+function sayHi (playerAddress){
+	document.getElementById("admin").innerText= `your address is : ${playerAddress} `;
 }

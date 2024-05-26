@@ -389,3 +389,9 @@ footer ul {
     padding: 5px;
     border-bottom: 1px solid #ddd;
 }
+
+#admin{
+    color:var(--plum);
+    font-size: 1.2rem;
+    
+}
