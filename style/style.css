@@ -295,7 +295,7 @@ footer ul {
     display: block;
     align-items: center;
 }
-#app #connectWallet, #submitFlag, #disconnectWallet{
+#app #connectWallet, #submitFlag, #disconnectWallet ,#addFlag{
     background-color: green;
     border-radius: 25px;
     padding:1rem;
@@ -307,7 +307,7 @@ footer ul {
     transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* Add transition for smooth effect */
 
 }
-#app #connectWallet:hover,#submitFlag:hover ,#disconnectWallet:hover{
+#app #connectWallet:hover,#submitFlag:hover ,#disconnectWallet:hover ,#addFlag:hover{
     background-color: white;
     color:green;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box-shadow instead of border */
