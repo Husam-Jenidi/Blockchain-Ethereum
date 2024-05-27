@@ -294,9 +294,15 @@ footer ul {
     margin-right:1rem;
     background-color: var(--magenta);
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Adjust the fractions as needed */
-    gap: 20px;    align-items: center;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px;    
+    align-items: center;
 }
+.connect h2{
+    border-bottom: 1px solid white;
+    padding-bottom:5px
+}
+
 #app #connectWallet, #submitFlag, #disconnectWallet ,#addFlag, #clearInputs{
     background-color: green;
     border-radius: 25px;
@@ -306,13 +312,13 @@ footer ul {
     font-family: var(--mono);
     font-weight: 500;
     margin: 1rem;
-    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* Add transition for smooth effect */
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; 
 
 }
 #app #connectWallet:hover,#submitFlag:hover ,#disconnectWallet:hover ,#addFlag:hover, #clearInputs:hover{
     background-color: white;
     color:green;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box-shadow instead of border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 
 }
 .dashboard{
@@ -372,26 +378,60 @@ footer ul {
 }
 
 .right-column {
-    background-color: #f1f1f1; /* Add your preferred styling */
+    
     padding: 20px;
-    color:red
+    color:antiquewhite;
+    border: 2px solid white;
+    border-radius: 10px;
+    height: auto;
+}
+.right-column h2{
+    border-bottom:1px solid white;
 }
 
 #players {
-    margin-top: 20px;
+    margin-top: 5px;
     padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
+    border: 3px solid gree;
+    background-color: var(--magenta);
+    color:white;
+    border-radius: 10px;
+
 }
 
 #players div {
-    margin-bottom: 10px;
+    margin-bottom: 3px;
     padding: 5px;
-    border-bottom: 1px solid #ddd;
+    background-color: var(--magenta);
+    border-bottom: 2px solid white;
+    border-radius: 5px;
+    
 }
 
 #admin{
     color:var(--plum);
     font-size: 1.2rem;
+    background-color: whitesmoke;
+    padding:0.5rem;
+    border-radius: 10px;
+    border: 2px solid var(--plum);
     
 }
+
+
+pre code {
+    
+    border: 1px solid white;
+    border-radius: 20px;
+    background-color: #00000047;
+    display: block;
+    padding: 20px;
+  }
+  
+  #app1{
+    padding: 2rem;
+    margin-left:1rem;
+    margin-right:1rem;
+    background-color: var(--magenta);
+    display: block;
+  }

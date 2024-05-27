@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script src="script.js" type="module"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/ethers@5.5.4/dist/ethers.umd.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/web3modal@1.9.4/dist/web3modal.min.js"></script> -->
+        
+        
+        <link rel="stylesheet" href="style/style.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oxygen+Mono&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+        <title>The Smart Contract</title>
+    </head>
+<body>
+    <nav>
+        <ul>
+          <li>
+            <h1>
+              <a href="index.html" target="">
+              <span class="Husam">Husam Jenidi</span>
+              <h1>
+                <span class="fab fa-ethereum"></span> 
+                 <span class="Husam">BlockChain-Ethereum</span>          
+               </h1>
+              </a>          
+            </h1>
+          </li>
+        
+          <li><a class="button" href="index.html" target="_blank">
+            <span class="fas fa-file-signature" area-hidden="true"></span>  
+           <span class="Husam">The Web App<span>
+            </a>
+          </li>
+          <li>
+            <a href="presentation.html" class="button" target="_blank">
+            <span class="fas fa-file-powerpoint" area-hidden="true"></span>  
+           <span class="Husam">Presentation</span>
+            </a>
+          </li>
+          <li><a href="https://www.linkedin.com/in/husam-jenidi/" target="_blank">
+             <span class="fab fa-linkedin" area-hidden="true"></span> 
+             <span class="sr-only">LinkedIn<span>
+             </a>
+           </li>
+          <li><a href="https://github.com/Husam-Jenidi" target="_blank">
+            <span class="fab fa-github-square" area-hidden="true"> </span> 
+            <span class="sr-only">Github<span></a></li>
+         
+        </ul>
+      </nav>
+    
+      <div id="app1">
+        <div>  <img src="remixLogo.svg" width="140px" height="100px"/></div>
+        <div id="smartContractCode">
+        <pre>
+    <code>
+    //SPDX-License-Identifier: MIT
+    pragma solidity ^0.8.0;
+
+    contract SmartChallenge {
+            address public owner;
+            mapping(address => uint256) public scores;
+            mapping(bytes32 => bool) private validFlags;
+            address [] public players;
+            mapping(address => bool) private hasSubmitted;
+
+            event ChallengeCompleted(address indexed player, string challengeId, uint256 score);
+
+            modifier onlyOwner() {
+                require(msg.sender == owner, "Not the owner");
+                _;
+                                }
+
+            constructor() {
+                owner = msg.sender;
+                           }
+
+            // Function to add a valid flag, callable only by the owner
+            function addFlag(string memory challengeId, string memory flag) public onlyOwner {
+                bytes32 flagHash = keccak256(abi.encodePacked(challengeId, flag));
+                validFlags[flagHash] = true;
+                    }
+
+            // Function to submit a flag, increments score if the flag is valid
+            function submitFlag(string memory challengeId, string memory flag) public {
+                bytes32 flagHash = keccak256(abi.encodePacked(challengeId, flag));
+                require(validFlags[flagHash], "Invalid flag22");
+
+                if (!hasSubmitted[msg.sender]) {
+                    players.push(msg.sender);
+                    hasSubmitted[msg.sender] = true;
+                                    }
+
+                scores[msg.sender] += 1;
+                validFlags[flagHash] = false;   //to make sure the player doesn't submit the same flag twice
+                emit ChallengeCompleted(msg.sender, challengeId, scores[msg.sender]);
+            }
+
+            // Function to return the player address
+            function playerAddress() public view returns (address){
+                return msg.sender; 
+            }
+
+            // Function to get the score of a specific player
+            function getScore(address player) public view returns (uint256) {
+                return scores[player];
+            }
+
+            // Function to get all players and their scores
+            function getAllPlayersAndScores() public view returns (address[] memory, uint256[] memory) {
+                uint256[] memory allScores = new uint256[](players.length);
+                for (uint256 i = 0; i < players.length; i++) {
+                    allScores[i] = scores[players[i]];
+                }
+
+                return (players, allScores);
+            }
+        }
+
+</code>
+</pre>
+</div>
+</div>
+</body>
+</html>

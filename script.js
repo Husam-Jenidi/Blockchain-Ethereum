@@ -296,9 +296,12 @@ async function getDashboard(){
 		playerData.forEach(player=>{
 			
 			const playerElement= document.createElement('div');
-			playerElement.innerText= `Address: ${player.address}, Score: ${player.score.toString()}`;
+			playerElement.innerText= `Player: ${player.address}, Score: ${player.score.toString()}`;
 			playerContainer.appendChild(playerElement);
-			if (player.address==playerAddress) {playerElement.style.color = '#03A678'}
+			if (player.address==playerAddress) {
+				playerElement.style.color = '#03A678';
+				playerElement.style.background='#ffffff1a'
+			}
 		});
 		
 	}
@@ -309,5 +312,5 @@ async function getDashboard(){
 	}
 }
 function sayHi (playerAddress){
-	document.getElementById("admin").innerText= `your address is : ${playerAddress} `;
+	document.getElementById("admin").innerText= `Your address is: ${playerAddress} `;
 }
