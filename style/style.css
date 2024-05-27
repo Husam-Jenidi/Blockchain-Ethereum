@@ -405,6 +405,7 @@ footer ul {
     background-color: var(--magenta);
     border-bottom: 2px solid white;
     border-radius: 5px;
+    font-size: var(--font-size);
     
 }
 
