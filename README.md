@@ -1,4 +1,4 @@
-This is a web interface to communicate with a smart contract written with solidity on Remix online IDE, you can submit a flag to check if it's acceptable or not.
+This is a web interface written by HTML-CSS and Javascript with the library ether.js to communicate with a smart contract written with solidity on Remix online IDE, you can submit a flag to check if it's acceptable or not.
 
 after you connect your crypto wallet, you can submit the flag "sa","sa" without quotation marks.
 and you will see your address on the dashboard.
